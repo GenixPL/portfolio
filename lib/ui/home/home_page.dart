@@ -33,7 +33,8 @@ class HomePage extends StatelessWidget {
                 textColor: Colors.white,
                 onTap: () => print("DUPA"),
               ),
-              CircleButton(
+              SizedBox(width: 16)
+,              CircleButton(
                 backgroundColor: Colors.grey[850],
               ),
             ],
