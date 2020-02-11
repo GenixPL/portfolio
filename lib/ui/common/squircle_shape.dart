@@ -1,11 +1,11 @@
 import 'package:flutter/rendering.dart';
 
 
-class SquircleBorder extends ShapeBorder {
+class SquircleShape extends ShapeBorder {
   final BorderSide side;
   final double superRadius;
 
-  const SquircleBorder({
+  const SquircleShape({
     this.side = BorderSide.none,
     this.superRadius = 4.0,
   })
@@ -17,7 +17,7 @@ class SquircleBorder extends ShapeBorder {
 
   @override
   ShapeBorder scale(double t) {
-    return new SquircleBorder(
+    return new SquircleShape(
       side: side.scale(t),
       superRadius: superRadius * t,
     );
