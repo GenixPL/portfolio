@@ -9,8 +9,9 @@ void main() {
   runApp(MyApp());
 }
 
+final router = Router();
+
 class MyApp extends StatelessWidget {
-  final router = Router();
 
   @override
   Widget build(BuildContext context) {

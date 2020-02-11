@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio/main.dart';
 import 'package:portfolio/navigation/routes.dart';
 import 'package:portfolio/ui/common/squircle_icon_button/squircle_icon_button.dart';
 
@@ -37,28 +38,34 @@ class TopBar extends StatelessWidget {
   }
 
   Widget _buildKnowledgeButton(BuildContext context) {
+    bool isNormal = (router.lastRoute == knowledgeMenuRoute) ? false : true;
+
     return SquircleIconButton(
       iconData: FontAwesomeIcons.atlas,
-      size: _normalItemSize,
-      iconSize: _normalIconSize,
+      size: isNormal ? _normalItemSize : _highlightedItemSize,
+      iconSize: isNormal ? _normalIconSize : _highlightedIconSize,
       onTap: () => Navigator.pushNamed(context, knowledgeMenuRoute),
     );
   }
 
   Widget _buildHomeButton(BuildContext context) {
+    bool isNormal = (router.lastRoute == homeRoute) ? false : true;
+
     return SquircleIconButton(
       iconData: FontAwesomeIcons.home,
-      size: _highlightedItemSize,
-      iconSize: _highlightedIconSize,
+      size: isNormal ? _normalItemSize : _highlightedItemSize,
+      iconSize: isNormal ? _normalIconSize : _highlightedIconSize,
       onTap: () => Navigator.pushNamed(context, homeRoute),
     );
   }
 
   Widget _buildInfoButton(BuildContext context) {
+    bool isNormal = (router.lastRoute == infoRoute) ? false : true;
+
     return SquircleIconButton(
       iconData: FontAwesomeIcons.solidAddressCard,
-      size: _normalItemSize,
-      iconSize: _normalIconSize,
+      size: isNormal ? _normalItemSize : _highlightedItemSize,
+      iconSize: isNormal ? _normalIconSize : _highlightedIconSize,
       onTap: () => Navigator.pushNamed(context, infoRoute),
     );
   }
