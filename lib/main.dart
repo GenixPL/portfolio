@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:portfolio/themes/main_theme.dart';
-import 'package:portfolio/ui/home/home.dart';
+import 'package:portfolio/ui/home/home_page.dart';
 
 void main() {
   runApp(MyApp());

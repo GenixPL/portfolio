@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/navigation/routes.dart';
-import 'package:portfolio/ui/home/home.dart';
+import 'package:portfolio/ui/home/home_page.dart';
 import 'package:portfolio/utils/logger.dart';
 import 'package:portfolio/navigation/stack.dart' as s;
 
