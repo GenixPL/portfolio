@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/ui/circle_button/circle_button.dart';
+import 'package:portfolio/ui/common/squircle_button/squircle_button.dart';
 
 class TopBar extends StatelessWidget {
+  final double _normalItemSize = 40;
+  final double _highlightedItemSize = 52;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,11 +22,17 @@ class TopBar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        CircleButton(),
+        SquircleButton(
+          size: _normalItemSize,
+        ),
         SizedBox(width: 16),
-        CircleButton(),
+        SquircleButton(
+          size: _highlightedItemSize,
+        ),
         SizedBox(width: 16),
-        CircleButton(),
+        SquircleButton(
+          size: _normalItemSize,
+        ),
       ],
     );
   }

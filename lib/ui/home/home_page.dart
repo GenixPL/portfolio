@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/ui/circle_button/circle_button.dart';
+import 'package:portfolio/ui/common/squircle_button/squircle_button.dart';
 import 'package:portfolio/ui/common/top_bar/top_bar.dart';
 
 class HomePage extends StatelessWidget {
@@ -28,13 +28,13 @@ class HomePage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              CircleButton(
+              SquircleButton(
                 backgroundColor: Colors.grey[850],
                 textColor: Colors.white,
                 onTap: () => print("DUPA"),
               ),
               SizedBox(width: 16)
-,              CircleButton(
+,              SquircleButton(
                 backgroundColor: Colors.grey[850],
               ),
             ],

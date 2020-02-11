@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/ui/common/squircle_shape.dart';
+import 'package:portfolio/ui/common/squircle_button/squircle_shape.dart';
 
-class CircleButton extends StatelessWidget {
+class SquircleButton extends StatelessWidget {
   final Function() onTap;
   final Color backgroundColor;
   final Color textColor;
   final double size;
 
-  CircleButton({
+  SquircleButton({
     this.onTap,
     this.backgroundColor = Colors.orange,
     this.textColor,
@@ -24,7 +24,7 @@ class CircleButton extends StatelessWidget {
 
   Widget _buildContent() {
     return Material(
-      shape: SquircleBorder(),
+      shape: SquircleShape(),
       color: backgroundColor,
       child: Container(
         width: size,
