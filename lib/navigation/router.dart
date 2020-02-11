@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/navigation/routes.dart';
 import 'package:portfolio/ui/home/home_page.dart';
+import 'package:portfolio/ui/info/info_page.dart';
+import 'package:portfolio/ui/knowledge/knowledge_menu_page.dart';
 import 'package:portfolio/utils/logger.dart';
 import 'package:portfolio/navigation/stack.dart' as s;
 
@@ -20,6 +22,12 @@ class Router with NavigatorObserver {
     switch (settings.name) {
       case homeRoute:
         return MaterialPageRoute(builder: (_) => HomePage());
+
+      case knowledgeMenuRoute:
+        return MaterialPageRoute(builder: (_) => KnowledgeMenuPage());
+
+      case infoRoute:
+        return MaterialPageRoute(builder: (_) => InfoPage());
 
       default:
         return _errorRoute('No path specified for: ${settings.name}.');

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio/navigation/routes.dart';
 import 'package:portfolio/ui/common/squircle_icon_button/squircle_icon_button.dart';
 
 class TopBar extends StatelessWidget {
@@ -17,33 +18,48 @@ class TopBar extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: _buildContent(),
+        child: _buildContent(context),
       ),
     );
   }
 
-  Widget _buildContent() {
+  Widget _buildContent(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        SquircleIconButton(
-          iconData: FontAwesomeIcons.atlas,
-          size: _normalItemSize,
-          iconSize: _normalIconSize,
-        ),
+        _buildKnowledgeButton(context),
         SizedBox(width: 16),
-        SquircleIconButton(
-          iconData: FontAwesomeIcons.home,
-          size: _highlightedItemSize,
-          iconSize: _highlightedIconSize,
-        ),
+        _buildHomeButton(context),
         SizedBox(width: 16),
-        SquircleIconButton(
-          iconData: FontAwesomeIcons.solidAddressCard,
-          size: _normalItemSize,
-          iconSize: _normalIconSize,
-        ),
+        _buildInfoButton(context),
       ],
+    );
+  }
+
+  Widget _buildKnowledgeButton(BuildContext context) {
+    return SquircleIconButton(
+      iconData: FontAwesomeIcons.atlas,
+      size: _normalItemSize,
+      iconSize: _normalIconSize,
+      onTap: () => Navigator.pushNamed(context, knowledgeMenuRoute),
+    );
+  }
+
+  Widget _buildHomeButton(BuildContext context) {
+    return SquircleIconButton(
+      iconData: FontAwesomeIcons.home,
+      size: _highlightedItemSize,
+      iconSize: _highlightedIconSize,
+      onTap: () => Navigator.pushNamed(context, homeRoute),
+    );
+  }
+
+  Widget _buildInfoButton(BuildContext context) {
+    return SquircleIconButton(
+      iconData: FontAwesomeIcons.solidAddressCard,
+      size: _normalItemSize,
+      iconSize: _normalIconSize,
+      onTap: () => Navigator.pushNamed(context, infoRoute),
     );
   }
 }
