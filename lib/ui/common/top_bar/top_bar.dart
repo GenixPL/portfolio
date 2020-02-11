@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/ui/common/squircle_button/squircle_button.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio/ui/common/squircle_icon_button/squircle_icon_button.dart';
 
 class TopBar extends StatelessWidget {
   final double _normalItemSize = 40;
+  final double _normalIconSize = 20;
+
   final double _highlightedItemSize = 52;
+  final double _highlightedIconSize = 24;
 
   @override
   Widget build(BuildContext context) {
@@ -22,16 +26,22 @@ class TopBar extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        SquircleButton(
+        SquircleIconButton(
+          iconData: FontAwesomeIcons.atlas,
           size: _normalItemSize,
+          iconSize: _normalIconSize,
         ),
         SizedBox(width: 16),
-        SquircleButton(
+        SquircleIconButton(
+          iconData: FontAwesomeIcons.home,
           size: _highlightedItemSize,
+          iconSize: _highlightedIconSize,
         ),
         SizedBox(width: 16),
-        SquircleButton(
+        SquircleIconButton(
+          iconData: FontAwesomeIcons.solidAddressCard,
           size: _normalItemSize,
+          iconSize: _normalIconSize,
         ),
       ],
     );

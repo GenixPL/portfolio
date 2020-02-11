@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/ui/common/squircle_button/squircle_shape.dart';
+import 'package:portfolio/ui/common/squircle_icon_button/squircle_shape.dart';
 
-class SquircleButton extends StatelessWidget {
+class SquircleIconButton extends StatelessWidget {
   final Function() onTap;
   final Color backgroundColor;
   final Color textColor;
   final double size;
+  final IconData iconData;
+  final double iconSize;
 
-  SquircleButton({
+  SquircleIconButton({
     this.onTap,
     this.backgroundColor = Colors.orange,
     this.textColor,
     this.size = 48,
-  });
+    this.iconData,
+    this.iconSize = 24,
+  }) : assert(iconData != null);
 
   @override
   Widget build(BuildContext context) {
@@ -29,16 +33,10 @@ class SquircleButton extends StatelessWidget {
       child: Container(
         width: size,
         height: size,
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              "D",
-              style: TextStyle(
-                color: textColor,
-              ),
-            ),
-          ),
+        child: Icon(
+          iconData,
+          size: iconSize,
+          color: Colors.white,
         ),
       ),
     );

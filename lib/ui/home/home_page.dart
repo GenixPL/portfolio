@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/ui/common/squircle_button/squircle_button.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio/ui/common/squircle_icon_button/squircle_icon_button.dart';
 import 'package:portfolio/ui/common/top_bar/top_bar.dart';
+
+import 'dart:js' as js;
 
 class HomePage extends StatelessWidget {
   @override
@@ -28,19 +31,30 @@ class HomePage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              SquircleButton(
+              SquircleIconButton(
+                iconData: FontAwesomeIcons.github,
                 backgroundColor: Colors.grey[850],
                 textColor: Colors.white,
-                onTap: () => print("DUPA"),
+                onTap: _moveToGithub,
               ),
-              SizedBox(width: 16)
-,              SquircleButton(
+              SizedBox(width: 16),
+              SquircleIconButton(
+                iconData: FontAwesomeIcons.youtube,
                 backgroundColor: Colors.grey[850],
+                onTap: _moveToYouTube,
               ),
             ],
           ),
         ],
       ),
     );
+  }
+
+  _moveToGithub() {
+    js.context.callMethod('open', ['https://github.com/GenixPL']);
+  }
+
+  _moveToYouTube() {
+    js.context.callMethod('open', ['https://www.youtube.com/channel/UC8iFSZEpTSbq8ActXXbvyfw?view_as=subscriber']);
   }
 }
