@@ -21,13 +21,16 @@ class Router with NavigatorObserver {
 
     switch (settings.name) {
       case homeRoute:
-        return MaterialPageRoute(builder: (_) => HomePage());
+        return MaterialPageRoute(
+            builder: (_) => HomePage(), settings: settings);
 
       case knowledgeMenuRoute:
-        return MaterialPageRoute(builder: (_) => KnowledgeMenuPage());
+        return MaterialPageRoute(
+            builder: (_) => KnowledgeMenuPage(), settings: settings);
 
       case infoRoute:
-        return MaterialPageRoute(builder: (_) => InfoPage());
+        return MaterialPageRoute(
+            builder: (_) => InfoPage(), settings: settings);
 
       default:
         return _errorRoute('No path specified for: ${settings.name}.');

@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio/ui/common/basic_page/basic_page.dart';
 import 'package:portfolio/ui/common/squircle_icon_button/squircle_icon_button.dart';
-import 'package:portfolio/ui/common/top_bar/top_bar.dart';
 
 import 'dart:js' as js;
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: <Widget>[
-          TopBar(),
-          Expanded(
-            child: _buildBody(),
-          ),
-        ],
-      ),
+    return BasicPage(
+      children: <Widget>[
+        Expanded(
+          child: _buildBody(),
+        ),
+      ],
     );
   }
 
@@ -55,6 +52,8 @@ class HomePage extends StatelessWidget {
   }
 
   _moveToYouTube() {
-    js.context.callMethod('open', ['https://www.youtube.com/channel/UC8iFSZEpTSbq8ActXXbvyfw?view_as=subscriber']);
+    js.context.callMethod('open', [
+      'https://www.youtube.com/channel/UC8iFSZEpTSbq8ActXXbvyfw?view_as=subscriber'
+    ]);
   }
 }

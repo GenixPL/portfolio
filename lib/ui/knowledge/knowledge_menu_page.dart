@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/ui/common/top_bar/top_bar.dart';
+import 'package:portfolio/ui/common/basic_page/basic_page.dart';
 
 class KnowledgeMenuPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: <Widget>[
-          TopBar(),
-          Text('Knowledge'),
-        ],
-      ),
+    return BasicPage(
+      children: [
+        Text('Knowledge'),
+        RaisedButton(
+          child: Text("go back"),
+          onPressed: () => Navigator.pop(context),
+        ),
+      ],
     );
   }
 }
