@@ -4,7 +4,8 @@ import 'package:portfolio/models/info_tile_m.dart';
 
 const article_Placelytics = {
   articleIdKey: 'placelytics',
-  articleTitleKey: 'Placelytics App',
+  articleBasicTagsKey: ['Flutter', 'Mobile App'],
+  articleTitleKey: 'Placelytics',
   articlePathToImgKey: 'assets/placelytics/logo.jpg',
   articleTagsKey: ['Flutter', 'Mobile App', 'Android', 'iOS'],
   articleIntoTilesKey: [
