@@ -21,29 +21,27 @@ class Router with NavigatorObserver {
     _routes.push(settings.name);
     Log.d(_TAG, 'generateRoute (${settings.name})');
 
-    switch (settings.name) {
-      case homeRoute:
-        return MaterialPageRoute(
-            builder: (_) => HomePage(), settings: settings);
+    if (settings.name == homeRoute) {
+      return MaterialPageRoute(builder: (_) => HomePage(), settings: settings);
+      //
+    } else if (settings.name.contains(knowledgeMenuRoute)) {
+      return MaterialPageRoute(
+          builder: (_) => KnowledgeMenuPage(), settings: settings);
+      //
+    } else if (settings.name.contains(infoRoute)) {
+      return MaterialPageRoute(builder: (_) => InfoPage(), settings: settings);
+      //
+    } else if (settings.name.contains(articleRoute)) {
 
-      case knowledgeMenuRoute:
-        return MaterialPageRoute(
-            builder: (_) => KnowledgeMenuPage(), settings: settings);
+      if (settings.name.split('/').length != 3) {
+        return _errorRoute("Wrong path.");
+      }
 
-      case infoRoute:
-        return MaterialPageRoute(
-            builder: (_) => InfoPage(), settings: settings);
-
-      case articleRoute:
-        if (args is! ArticleM) {
-          return _errorRoute("Page should receive ArticleM object.");
-        }
-
-        return MaterialPageRoute(
-            builder: (_) => ArticlePage(args), settings: settings);
-
-      default:
-        return _errorRoute('No path specified for: ${settings.name}.');
+      return MaterialPageRoute(
+          builder: (_) => ArticlePage(settings.name.split('/')[1]), settings: settings);
+      //
+    } else {
+      return _errorRoute('No path specified for: ${settings.name}');
     }
   }
 

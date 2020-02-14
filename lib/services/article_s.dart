@@ -5,10 +5,12 @@ final articleS = ArticleS();
 
 class ArticleS {
   List<ArticleM> _articles;
+
   List<ArticleM> get articles => _articles;
 
   //
   List<ArticleM> _latestArticles;
+
   List<ArticleM> get latestArticles => _latestArticles;
 
   //
@@ -23,7 +25,7 @@ class ArticleS {
   List<ArticleM> getApps() {
     List<ArticleM> toReturn = List();
 
-    for (int i = 0; i < _articles.length; i++ ){
+    for (int i = 0; i < _articles.length; i++) {
       bool isApp = false;
 
       _articles[i].tags.forEach((tag) {
@@ -37,8 +39,16 @@ class ArticleS {
       }
     }
 
-
     return toReturn;
   }
 
+  ArticleM getWithId(String id) {
+    for (int i = 0; i < _articles.length; i++) {
+      if (_articles[i].id == id) {
+        return _articles[i];
+      }
+    }
+
+    return null;
+  }
 }

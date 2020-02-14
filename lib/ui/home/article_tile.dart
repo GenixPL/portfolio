@@ -13,7 +13,7 @@ class ArticleTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () =>
-          Navigator.pushNamed(context, articleRoute, arguments: _article),
+          Navigator.pushNamed(context, articleRoute + "/" + _article.id),
       child: _buildContent(context),
     );
   }

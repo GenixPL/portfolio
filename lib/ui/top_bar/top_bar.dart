@@ -43,6 +43,7 @@ class TopBar extends StatelessWidget {
 
   Widget _buildCenterPart(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         _buildKnowledgeButton(context),
