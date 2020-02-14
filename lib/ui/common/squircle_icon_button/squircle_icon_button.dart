@@ -11,7 +11,7 @@ class SquircleIconButton extends StatelessWidget {
 
   SquircleIconButton({
     this.onTap,
-    this.backgroundColor = Colors.orange,
+    this.backgroundColor,
     this.textColor,
     this.size = 48,
     this.iconData,
@@ -22,14 +22,16 @@ class SquircleIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: _buildContent(),
+      child: _buildContent(context),
     );
   }
 
-  Widget _buildContent() {
+  Widget _buildContent(BuildContext context) {
     return Material(
       shape: SquircleShape(),
-      color: backgroundColor,
+      color: (backgroundColor != null)
+          ? backgroundColor
+          : Theme.of(context).accentColor,
       child: Container(
         width: size,
         height: size,

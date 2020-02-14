@@ -4,6 +4,8 @@ import 'package:portfolio/main.dart';
 import 'package:portfolio/navigation/routes.dart';
 import 'package:portfolio/ui/common/squircle_icon_button/squircle_icon_button.dart';
 
+import 'dart:js' as js;
+
 class TopBar extends StatelessWidget {
   final double _normalItemSize = 40;
   final double _normalIconSize = 20;
@@ -15,7 +17,7 @@ class TopBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.grey[850],
+        color: Theme.of(context).primaryColor,
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -26,7 +28,21 @@ class TopBar extends StatelessWidget {
 
   Widget _buildContent(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Expanded(
+          child: Container(),
+        ),
+        _buildCenterPart(context),
+        Expanded(
+          child: _buildRightPart(context),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildCenterPart(BuildContext context) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         _buildKnowledgeButton(context),
         SizedBox(width: 16),
@@ -36,6 +52,31 @@ class TopBar extends StatelessWidget {
       ],
     );
   }
+
+  Widget _buildRightPart(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: <Widget>[
+        SquircleIconButton(
+          iconData: FontAwesomeIcons.github,
+          backgroundColor: Color(0xff24292e),
+          iconSize: _normalIconSize,
+          size: _normalItemSize,
+          onTap: _moveToGithub,
+        ),
+        SizedBox(width: 8),
+        SquircleIconButton(
+          iconData: FontAwesomeIcons.youtube,
+          backgroundColor: Colors.red,
+          iconSize: _normalIconSize,
+          size: _normalItemSize,
+          onTap: _moveToYouTube,
+        ),
+      ],
+    );
+  }
+
+  //BUTTONS
 
   Widget _buildKnowledgeButton(BuildContext context) {
     bool isNormal = (router.lastRoute == knowledgeMenuRoute) ? false : true;
@@ -68,5 +109,17 @@ class TopBar extends StatelessWidget {
       iconSize: isNormal ? _normalIconSize : _highlightedIconSize,
       onTap: () => Navigator.pushNamed(context, infoRoute),
     );
+  }
+
+  // FUNCTIONS
+
+  _moveToGithub() {
+    js.context.callMethod('open', ['https://github.com/GenixPL']);
+  }
+
+  _moveToYouTube() {
+    js.context.callMethod('open', [
+      'https://www.youtube.com/channel/UC8iFSZEpTSbq8ActXXbvyfw?view_as=subscriber'
+    ]);
   }
 }

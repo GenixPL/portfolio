@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/ui/common/top_bar/top_bar.dart';
+import 'package:portfolio/ui/top_bar/top_bar.dart';
 
 class BasicPage extends StatelessWidget {
   final List<Widget> children;
