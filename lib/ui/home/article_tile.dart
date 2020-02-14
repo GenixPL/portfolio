@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/models/article_m.dart';
+import 'package:portfolio/navigation/routes.dart';
 import 'package:portfolio/ui/common/text_tile_wrapper/text_tile_wrapper.dart';
 import 'package:portfolio/values/shadow.dart';
 
@@ -10,6 +11,14 @@ class ArticleTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () =>
+          Navigator.pushNamed(context, articleRoute, arguments: _article),
+      child: _buildContent(context),
+    );
+  }
+
+  Widget _buildContent(BuildContext context) {
     return Container(
       color: Colors.transparent, // this preserves shadow
       child: Padding(

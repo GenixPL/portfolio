@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/models/article_m.dart';
 import 'package:portfolio/navigation/routes.dart';
+import 'package:portfolio/ui/article/article_page.dart';
 import 'package:portfolio/ui/home/home_page.dart';
 import 'package:portfolio/ui/info/info_page.dart';
 import 'package:portfolio/ui/knowledge/knowledge_menu_page.dart';
@@ -31,6 +33,14 @@ class Router with NavigatorObserver {
       case infoRoute:
         return MaterialPageRoute(
             builder: (_) => InfoPage(), settings: settings);
+
+      case articleRoute:
+        if (args is! ArticleM) {
+          return _errorRoute("Page should receive ArticleM object.");
+        }
+
+        return MaterialPageRoute(
+            builder: (_) => ArticlePage(args), settings: settings);
 
       default:
         return _errorRoute('No path specified for: ${settings.name}.');
