@@ -38,7 +38,7 @@ class Router with NavigatorObserver {
       }
 
       return MaterialPageRoute(
-          builder: (_) => ArticlePage(settings.name.split('/')[1]), settings: settings);
+          builder: (_) => ArticlePage(settings.name.split('/')[2]), settings: settings);
       //
     } else {
       return _errorRoute('No path specified for: ${settings.name}');
