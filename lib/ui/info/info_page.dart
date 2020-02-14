@@ -7,6 +7,7 @@ class InfoPage extends StatelessWidget {
     return BasicPage(
       children: [
         Text('Info'),
+        Text('WIP'),
       ],
     );
   }

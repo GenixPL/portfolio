@@ -30,6 +30,7 @@ class TopBar extends StatelessWidget {
     return Row(
       children: <Widget>[
         Expanded(
+          //TODO add info that flutter web is in development
           child: Container(),
         ),
         _buildCenterPart(context),

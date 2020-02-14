@@ -7,10 +7,7 @@ class KnowledgeMenuPage extends StatelessWidget {
     return BasicPage(
       children: [
         Text('Knowledge'),
-        RaisedButton(
-          child: Text("go back"),
-          onPressed: () => Navigator.pop(context),
-        ),
+        Text('WIP'),
       ],
     );
   }

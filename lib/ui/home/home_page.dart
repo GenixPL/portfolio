@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio/models/article_m.dart';
+import 'package:portfolio/services/article_s.dart';
 import 'package:portfolio/ui/common/basic_page/basic_page.dart';
-import 'package:portfolio/ui/common/squircle_icon_button/squircle_icon_button.dart';
+import 'package:portfolio/ui/home/article_tile.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -16,15 +17,29 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _buildBody() {
-    return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+    return Column(
+      children: <Widget>[
+        SizedBox(height: 16),
+        Text('HOME'),
+        SizedBox(height: 16),
+        Text('APPS'),
+        SizedBox(height: 8),
+        _buildAppsSection(),
+      ],
+    );
+  }
+
+  Widget _buildAppsSection() {
+    List<ArticleM> appArticles = articleS.getApps();
+
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
         children: <Widget>[
-          Text('HOME'),
+          for (int i = 0; i < appArticles.length; i++)
+            ArticleTile(appArticles[i]),
         ],
       ),
     );
   }
-
-
 }
