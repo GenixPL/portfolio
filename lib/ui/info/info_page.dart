@@ -7,7 +7,6 @@ class InfoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BasicPage(
       children: [
-        SizedBox(height: 32),
         ConstrainedBox(
           constraints: BoxConstraints(maxWidth: 800),
           child: Column(

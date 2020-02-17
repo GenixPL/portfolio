@@ -14,7 +14,6 @@ class ArticlePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BasicPage(
       children: <Widget>[
-        SizedBox(height: 32),
         _buildTopSection(context),
         _buildHorizontalSeparator(context),
       ],

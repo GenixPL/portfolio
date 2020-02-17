@@ -19,6 +19,7 @@ class BasicPage extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
           TopBar(),
+          SizedBox(height: 32),
           ConstrainedBox(
             constraints: BoxConstraints(
               maxWidth: limitWidth ? maxWidth : double.infinity,

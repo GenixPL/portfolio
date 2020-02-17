@@ -9,20 +9,15 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BasicPage(
       children: <Widget>[
-        Expanded(
-          child: _buildBody(),
-        ),
+        _buildBody(context),
       ],
     );
   }
 
-  Widget _buildBody() {
+  Widget _buildBody(BuildContext context) {
     return Column(
       children: <Widget>[
-        SizedBox(height: 16),
-        Text('HOME'),
-        SizedBox(height: 16),
-        Text('APPS'),
+        _buildHeader(context, 'DEVELOPED APPS'),
         SizedBox(height: 8),
         _buildAppsSection(),
       ],
@@ -39,6 +34,20 @@ class HomePage extends StatelessWidget {
           for (int i = 0; i < appArticles.length; i++)
             ArticleTile(appArticles[i]),
         ],
+      ),
+    );
+  }
+
+  // OTHER
+
+  Widget _buildHeader(BuildContext context, String text) {
+    return Text(
+      text,
+      style: TextStyle(
+        color: Theme.of(context).accentColor,
+        fontSize: 20,
+        fontWeight: FontWeight.w600,
+        letterSpacing: 1.5,
       ),
     );
   }
