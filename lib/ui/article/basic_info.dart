@@ -16,6 +16,14 @@ class BasicInfo extends StatelessWidget {
         _buildTitle(context),
         SizedBox(height: 16),
         _buildTags(context),
+        SizedBox(height: 16),
+        _buildTechnologyStack(context),
+        SizedBox(height: 16),
+        _buildStartDate(context),
+        SizedBox(height: 16),
+        _buildEndDate(context),
+        SizedBox(height: 16),
+        _buildRepoLink(context),
       ],
     );
   }
@@ -25,13 +33,7 @@ class BasicInfo extends StatelessWidget {
       children: <Widget>[
         _buildHeader(context, 'Title:'),
         SizedBox(width: 8),
-        Text(
-          _article.title,
-          style: TextStyle(
-            fontSize: 20,
-            letterSpacing: 1.5,
-          ),
-        ),
+        _buildRegularText(context, _article.title),
       ],
     );
   }
@@ -41,8 +43,89 @@ class BasicInfo extends StatelessWidget {
       children: <Widget>[
         _buildHeader(context, 'Tags:'),
         SizedBox(width: 8),
-        TextTilesWrapper(texts: _article.tags),
+        Flexible(
+          child: TextTilesWrapper(texts: _article.tags),
+        ),
       ],
+    );
+  }
+
+  Widget _buildTechnologyStack(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        _buildHeader(context, 'Technologies:'),
+        SizedBox(width: 8),
+        Flexible(
+          child: TextTilesWrapper(texts: _article.technologyStack),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildStartDate(BuildContext context) {
+    String text;
+    if (_article.startDate != null) {
+      final date = _article.startDate;
+      final day = date.day.toString().padLeft(2, '0');
+      final month = date.month.toString().padLeft(2,'0');
+      final year = date.year.toString().padLeft(2, '0');
+      text = '$day.$month.$year';
+    } else {
+      text = 'Unknown';
+    }
+    
+    return Row(
+      children: <Widget>[
+        _buildHeader(context, 'Start date:'),
+        SizedBox(width: 8),
+        _buildRegularText(context, text),
+      ],
+    );
+  }
+
+  Widget _buildEndDate(BuildContext context) {
+    String text;
+    if (_article.endDate != null) {
+      final date = _article.endDate;
+      final day = date.day.toString().padLeft(2, '0');
+      final month = date.month.toString().padLeft(2,'0');
+      final year = date.year.toString().padLeft(2, '0');
+      text = '$day.$month.$year';
+    } else {
+      text = 'Unknown';
+    }
+    
+    return Row(
+      children: <Widget>[
+        _buildHeader(context, 'End date:'),
+        SizedBox(width: 8),
+        _buildRegularText(context, text),
+      ],
+    );
+  }
+
+  Widget _buildRepoLink(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        _buildHeader(context, 'Repo link:'),
+        SizedBox(width: 8),
+        (_article.repoLink == null)
+            ? _buildRegularText(context, 'Not accessible')
+            : _buildRegularText(
+                context, _article.endDate?.toString() ?? 'Unknown'),
+      ],
+    );
+  }
+
+  // COMMON
+
+  Widget _buildRegularText(BuildContext context, String text) {
+    return Text(
+      text,
+      style: TextStyle(
+        fontSize: 20,
+        letterSpacing: 1.5,
+      ),
     );
   }
 

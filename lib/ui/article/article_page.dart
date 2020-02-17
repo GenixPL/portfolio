@@ -4,7 +4,6 @@ import 'package:portfolio/services/article_s.dart';
 import 'package:portfolio/ui/article/basic_info.dart';
 import 'package:portfolio/ui/article/main_img.dart';
 import 'package:portfolio/ui/common/basic_page/basic_page.dart';
-import 'package:portfolio/values/shadow.dart';
 
 class ArticlePage extends StatelessWidget {
   final ArticleM _article;
@@ -23,31 +22,19 @@ class ArticlePage extends StatelessWidget {
   }
 
   Widget _buildTopSection(BuildContext context) {
-    return IntrinsicHeight(
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Expanded(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                Container(
-                  constraints: BoxConstraints(maxWidth: 250),
-                  child: MainImg(_article.pathToImg),
-                ),
-              ],
-            ),
-          ),
-          _buildVerticalSeparator(context),
-          Expanded(
-            child: Row(
-              children: <Widget>[
-                BasicInfo(_article),
-              ],
-            ),
-          ),
-        ],
-      ),
+    return Wrap(
+      alignment: WrapAlignment.center,
+      crossAxisAlignment: WrapCrossAlignment.center,
+      children: <Widget>[
+        Container(
+          constraints: BoxConstraints(maxWidth: 250),
+          child: MainImg(_article.pathToImg),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: BasicInfo(_article),
+        ),
+      ],
     );
   }
 
@@ -66,7 +53,7 @@ class ArticlePage extends StatelessWidget {
 
   Widget _buildHorizontalSeparator(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(32, 16, 32, 16),
+      padding: const EdgeInsets.all(16),
       child: Container(
         height: 4,
         constraints: BoxConstraints(maxWidth: 800),

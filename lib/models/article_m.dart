@@ -6,42 +6,50 @@ const String articleTagsKey = 'tags';
 const String articleIntoTilesKey = 'info_tiles';
 const String articlePathToImgKey = 'path_to_img';
 const String articleTitleKey = 'title';
+const String articleTechnologyStackKey = 'technology_stack';
+const String articleStartDateKey = 'start_date';
+const String articleEndDateKey = 'end_date';
+const String articleRepoLinkKey = 'repo_link';
 
 class ArticleM {
   String _id;
-
   String get id => _id;
 
   //
   List<String> _tags;
-
   List<String> get tags => _tags;
 
   //
   List<String> _basicTags;
-
   List<String> get basicTags => _basicTags;
 
   //
   List<InfoTileM> _infoTiles;
-
   List<InfoTileM> get infoTiles => _infoTiles;
 
   //
   String _pathToImg;
-
   String get pathToImg => _pathToImg;
 
   //
   String _title;
-
   String get title => _title;
 
-  //TODO add closeDay
-  //TODO add openDay
-  //TODO add lastUpdateDay
-  //TODO add repo link
-  //TODO add basic tags list
+  //
+  List<String> _technologyStack;
+  List<String> get technologyStack => _technologyStack;
+
+  //
+  DateTime _startDate;
+  DateTime get startDate => _startDate;
+
+  //
+  DateTime _endDate;
+  DateTime get endDate => _endDate;
+
+  //
+  String _repoLink;
+  String get repoLink => _repoLink;
 
   //
   ArticleM(Map<String, dynamic> map) {
@@ -70,5 +78,21 @@ class ArticleM {
         map[articlePathToImgKey] ?? (throw ArgumentError('NO PATH TO IMG'));
 
     _title = map[articleTitleKey] ?? (throw ArgumentError('NO TITLE'));
+
+    if (map[articleTechnologyStackKey] != null) {
+      _technologyStack = map[articleTechnologyStackKey].cast<String>();
+    } else {
+      _technologyStack = List();
+    }
+
+    if (map[articleStartDateKey] != null) {
+      _startDate = DateTime.parse(map[articleStartDateKey]);
+    }
+
+    if (map[articleEndDateKey] != null) {
+      _endDate = DateTime.parse(map[articleEndDateKey]);
+    }
+
+    _repoLink = map[articleRepoLinkKey];
   }
 }
