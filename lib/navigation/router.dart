@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/models/article_m.dart';
 import 'package:portfolio/navigation/routes.dart';
 import 'package:portfolio/ui/article/article_page.dart';
 import 'package:portfolio/ui/home/home_page.dart';
@@ -16,7 +15,7 @@ class Router with NavigatorObserver {
   get lastRoute => _routes.top();
 
   Route<dynamic> generateRoute(RouteSettings settings) {
-    final args = settings.arguments;
+    // final args = settings.arguments;
 
     _routes.push(settings.name);
     Log.d(_TAG, 'generateRoute (${settings.name})');

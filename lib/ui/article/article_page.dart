@@ -29,10 +29,8 @@ class ArticlePage extends StatelessWidget {
           constraints: BoxConstraints(maxWidth: 250),
           child: MainImg(_article.pathToImg),
         ),
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: BasicInfo(_article),
-        ),
+        SizedBox(height: 8),
+        BasicInfo(_article),
       ],
     );
   }
@@ -52,7 +50,7 @@ class ArticlePage extends StatelessWidget {
 
   Widget _buildHorizontalSeparator(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.only(top: 8, bottom: 8),
       child: Container(
         height: 4,
         constraints: BoxConstraints(maxWidth: 800),

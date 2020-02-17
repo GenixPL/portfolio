@@ -16,20 +16,39 @@ class BasicPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        mainAxisSize: MainAxisSize.max,
         children: <Widget>[
           TopBar(),
-          SizedBox(height: 32),
-          ConstrainedBox(
-            constraints: BoxConstraints(
-              maxWidth: limitWidth ? maxWidth : double.infinity,
-            ),
-            child: Column(
-              children: children,
+          Flexible(
+            child: ScrollConfiguration(
+              behavior: _CustomScrollBehavior(),
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 32, 16, 16),
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      maxWidth: limitWidth ? maxWidth : double.infinity,
+                    ),
+                    child: Column(
+                      children: children,
+                    ),
+                  ),
+                ),
+              ),
             ),
           ),
         ],
       ),
     );
+  }
+}
+
+class _CustomScrollBehavior extends ScrollBehavior {
+  @override
+  Widget buildViewportChrome(
+    BuildContext context,
+    Widget child,
+    AxisDirection axisDirection,
+  ) {
+    return child;
   }
 }
