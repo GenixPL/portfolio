@@ -5,6 +5,8 @@ import 'package:portfolio/ui/common/text_tile_wrapper/text_tile_wrapper.dart';
 class BasicInfo extends StatelessWidget {
   final ArticleM _article;
 
+  final double _paddingSize = 12;
+
   BasicInfo(this._article);
 
   @override
@@ -14,16 +16,18 @@ class BasicInfo extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         _buildTitle(context),
-        SizedBox(height: 16),
+        SizedBox(height: _paddingSize),
         _buildTags(context),
-        SizedBox(height: 16),
+        SizedBox(height: _paddingSize),
         _buildTechnologyStack(context),
-        SizedBox(height: 16),
+        SizedBox(height: _paddingSize),
         _buildStartDate(context),
-        SizedBox(height: 16),
+        SizedBox(height: _paddingSize),
         _buildEndDate(context),
-        SizedBox(height: 16),
+        SizedBox(height: _paddingSize),
         _buildRepoLink(context),
+        SizedBox(height: _paddingSize),
+        _buildStoreLink(context),
       ],
     );
   }
@@ -112,7 +116,20 @@ class BasicInfo extends StatelessWidget {
         (_article.repoLink == null)
             ? _buildRegularText(context, 'Not accessible')
             : _buildRegularText(
-                context, _article.endDate?.toString() ?? 'Unknown'),
+                context, _article.repoLink?.toString() ?? 'Unknown'),
+      ],
+    );
+  }
+
+  Widget _buildStoreLink(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        _buildHeader(context, 'Google Play link:'),
+        SizedBox(width: 8),
+        (_article.storeLink == null)
+            ? _buildRegularText(context, 'Not accessible')
+            : _buildRegularText(
+                context, _article.storeLink?.toString() ?? 'Unknown'),
       ],
     );
   }
@@ -123,7 +140,7 @@ class BasicInfo extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(
-        fontSize: 20,
+        fontSize: 16,
         letterSpacing: 1.5,
       ),
     );
@@ -134,7 +151,7 @@ class BasicInfo extends StatelessWidget {
       text,
       style: TextStyle(
         color: Theme.of(context).accentColor,
-        fontSize: 20,
+        fontSize: 16,
         letterSpacing: 1.5,
       ),
     );
