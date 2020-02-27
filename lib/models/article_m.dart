@@ -10,6 +10,7 @@ const String articleTechnologyStackKey = 'technology_stack';
 const String articleStartDateKey = 'start_date';
 const String articleEndDateKey = 'end_date';
 const String articleRepoLinkKey = 'repo_link';
+const String articleStoreLinkKey = 'store_link';
 
 class ArticleM {
   String _id;
@@ -50,6 +51,10 @@ class ArticleM {
   //
   String _repoLink;
   String get repoLink => _repoLink;
+
+  //
+  String _storeLink;
+  String get storeLink => _storeLink;
 
   //
   ArticleM(Map<String, dynamic> map) {
@@ -94,5 +99,7 @@ class ArticleM {
     }
 
     _repoLink = map[articleRepoLinkKey];
+
+    _storeLink = map[articleStoreLinkKey];
   }
 }
