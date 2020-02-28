@@ -19,6 +19,7 @@ class ArticleS {
     _latestArticles = List();
 
     _articles.add(ArticleM(article_Placelytics));
+    _articles.add(ArticleM(article_Pictile));
     _articles.add(ArticleM(article_Example));
   }
 

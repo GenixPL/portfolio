@@ -5,12 +5,10 @@ const String infoTileValuesKey = 'values';
 
 class InfoTileM {
   InfoTileType _type;
-
   InfoTileType get type => _type;
 
   //
   List<String> _values;
-
   List<String> get values => _values;
 
   //
