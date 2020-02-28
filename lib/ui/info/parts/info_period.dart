@@ -75,11 +75,6 @@ class InfoPeriod extends StatelessWidget {
               color: Colors.white,
             ),
             InfoHeader(
-              ' - ',
-              fontSize: 18,
-              color: Colors.white,
-            ),
-            InfoHeader(
               this.second,
               fontSize: 18,
               color: Colors.white,

@@ -27,3 +27,8 @@ flutter:
   assets:
     - assets/
     - assets/placelytics/
+
+  fonts:
+    - family: RobotoSlab
+      fonts:
+        - asset: fonts/RobotoSlab.ttf

@@ -14,7 +14,8 @@ class InfoRegularText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: GoogleFonts.robotoSlab(
+      style: TextStyle(
+        fontFamily: 'RobotoSlab',
         fontSize: fontSize,
       ),
     );

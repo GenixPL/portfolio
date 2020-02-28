@@ -18,7 +18,8 @@ class InfoHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: GoogleFonts.robotoSlab(
+      style: TextStyle(
+        fontFamily: 'RobotoSlab',
         fontSize: fontSize,
         fontWeight: fontWeight,
         letterSpacing: 1.5,
@@ -28,7 +29,8 @@ class InfoHeader extends StatelessWidget {
   }
 
   static TextStyle getDefaultTextStyle() {
-    return GoogleFonts.robotoSlab(
+    return TextStyle(
+      fontFamily: 'RobotoSlab',
       fontSize: 20,
       fontWeight: FontWeight.w600,
       letterSpacing: 1.5,
