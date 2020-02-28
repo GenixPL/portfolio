@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/navigation/routes.dart';
-import 'package:portfolio/ui/home/home.dart';
+import 'package:portfolio/ui/article/article_page.dart';
+import 'package:portfolio/ui/home/home_page.dart';
+import 'package:portfolio/ui/info/info_page.dart';
+import 'package:portfolio/ui/knowledge/knowledge_menu_page.dart';
 import 'package:portfolio/utils/logger.dart';
 import 'package:portfolio/navigation/stack.dart' as s;
 
@@ -12,17 +15,32 @@ class Router with NavigatorObserver {
   get lastRoute => _routes.top();
 
   Route<dynamic> generateRoute(RouteSettings settings) {
-    final args = settings.arguments;
+    // final args = settings.arguments;
 
     _routes.push(settings.name);
     Log.d(_TAG, 'generateRoute (${settings.name})');
 
-    switch (settings.name) {
-      case homeRoute:
-        return MaterialPageRoute(builder: (_) => HomePage());
+    if (settings.name == homeRoute) {
+      return MaterialPageRoute(builder: (_) => HomePage(), settings: settings);
+      //
+    } else if (settings.name.contains(knowledgeMenuRoute)) {
+      return MaterialPageRoute(
+          builder: (_) => KnowledgeMenuPage(), settings: settings);
+      //
+    } else if (settings.name.contains(infoRoute)) {
+      return MaterialPageRoute(builder: (_) => InfoPage(), settings: settings);
+      //
+    } else if (settings.name.contains(articleRoute)) {
 
-      default:
-        return _errorRoute('No path specified for: ${settings.name}.');
+      if (settings.name.split('/').length != 3) {
+        return _errorRoute("Wrong path.");
+      }
+
+      return MaterialPageRoute(
+          builder: (_) => ArticlePage(settings.name.split('/')[2]), settings: settings);
+      //
+    } else {
+      return _errorRoute('No path specified for: ${settings.name}');
     }
   }
 

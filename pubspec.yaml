@@ -5,12 +5,15 @@ version: 1.0.0+1
 
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.5.2 <3.0.0"
 
 
 dependencies:
   flutter:
     sdk: flutter
+
+  font_awesome_flutter: ^8.5.0
+  google_fonts: ^0.3.9
 
 
 dev_dependencies:
@@ -20,3 +23,13 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/placelytics/
+    - assets/pictile/
+
+  fonts:
+    - family: RobotoSlab
+      fonts:
+        - asset: fonts/RobotoSlab.ttf
