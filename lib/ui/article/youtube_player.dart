@@ -1,17 +1,33 @@
+import 'dart:html';
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 
-class YouTubePlayer extends StatefulWidget {
-  @override
-  _YouTubePlayerState createState() => _YouTubePlayerState();
-}
+// https://github.com/flutter/flutter_web/blob/master/examples/html_platform_view/lib/main.dart
+// https://stackoverflow.com/questions/58150503/webview-in-flutter-web
 
-class _YouTubePlayerState extends State<YouTubePlayer> {
+class YouTubePlayer extends StatelessWidget {
+  final List<String> values;
+
+  YouTubePlayer(this.values);
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 250,
-      height: 250,
-      child: Text('YT'),
+    if (values[0] == null) {
+      return Text('YouTubePlayer - NO VALUE');
+    }
+
+    // ignore: undefined_prefixed_name
+    ui.platformViewRegistry.registerViewFactory(
+      'yt-frame',
+      (int viewId) => IFrameElement()
+        ..src = values[0]
+        ..style.border = 'none',
+    );
+
+    return AspectRatio(
+      aspectRatio: 16 / 9,
+      child: HtmlElementView(viewType: 'yt-frame'),
     );
   }
 }

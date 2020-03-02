@@ -20,7 +20,7 @@ const article_Placelytics = {
   articleIntoTilesKey: [
     {
       infoTileTypeKey: InfoTileType.YOUTUBE,
-      infoTileValuesKey: ['id'],
+      infoTileValuesKey: ['https://www.youtube.com/embed/h5CSd-B2x0w'],
     }
   ],
 };

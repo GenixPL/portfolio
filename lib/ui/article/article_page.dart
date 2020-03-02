@@ -53,7 +53,7 @@ class ArticlePage extends StatelessWidget {
         return ManyPictures(infoTile.values);
 
       case InfoTileType.YOUTUBE:
-        return YouTubePlayer();
+        return YouTubePlayer(infoTile.values);
         break;
     }
 
