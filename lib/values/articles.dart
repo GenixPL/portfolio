@@ -67,5 +67,10 @@ const article_TheHardestGame = {
   articleStartDateKey: '2020-02-14T00:00:00.000000',
   articleStoreLinkKey:
       'https://play.google.com/store/apps/details?id=com.appvinio.logicgame1',
-  articleIntoTilesKey: [],
+  articleIntoTilesKey: [
+    {
+      infoTileTypeKey: InfoTileType.YOUTUBE,
+      infoTileValuesKey: ['https://www.youtube.com/embed/KSW5koz3zkU'],
+    }
+  ],
 };
