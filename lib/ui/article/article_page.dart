@@ -6,6 +6,7 @@ import 'package:portfolio/services/article_s.dart';
 import 'package:portfolio/ui/article/basic_info.dart';
 import 'package:portfolio/ui/article/main_img.dart';
 import 'package:portfolio/ui/article/many_pictures.dart';
+import 'package:portfolio/ui/article/youtube_player.dart';
 import 'package:portfolio/ui/common/basic_page/basic_page.dart';
 
 class ArticlePage extends StatelessWidget {
@@ -50,6 +51,10 @@ class ArticlePage extends StatelessWidget {
 
       case InfoTileType.MANY_PICTURES:
         return ManyPictures(infoTile.values);
+
+      case InfoTileType.YOUTUBE:
+        return YouTubePlayer();
+        break;
     }
 
     return Text('NO SUCH TYPE (ERROR)');

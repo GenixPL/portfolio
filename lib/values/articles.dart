@@ -19,13 +19,9 @@ const article_Placelytics = {
   articleEndDateKey: '2020-01-29T00:00:00.000000',
   articleIntoTilesKey: [
     {
-      infoTileTypeKey: InfoTileType.BASIC_INFO,
-      infoTileValuesKey: ['Some example value'],
-    },
-    {
-      infoTileTypeKey: InfoTileType.BASIC_INFO,
-      infoTileValuesKey: ['Some example value 2'],
-    },
+      infoTileTypeKey: InfoTileType.YOUTUBE,
+      infoTileValuesKey: ['id'],
+    }
   ],
 };
 
