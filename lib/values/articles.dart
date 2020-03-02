@@ -53,19 +53,19 @@ const article_Pictile = {
   ],
 };
 
-const article_Example = {
-  articleIdKey: 'example',
-  articleTitleKey: 'Example',
-  articlePathToImgKey: 'assets/placelytics/logo.jpg',
-  articleTagsKey: ['Flutter', 'Android', 'iOS'],
-  articleIntoTilesKey: [
-    {
-      infoTileTypeKey: InfoTileType.BASIC_INFO,
-      infoTileValuesKey: ['Some example value'],
-    },
-    {
-      infoTileTypeKey: InfoTileType.BASIC_INFO,
-      infoTileValuesKey: ['Some example value 2'],
-    },
+const article_TheHardestGame = {
+  articleIdKey: 'the_hardest_game',
+  articleBasicTagsKey: ['Flutter', 'Mobile App'],
+  articleTitleKey: 'The Hardest Game',
+  articlePathToImgKey: 'assets/thg/logo.png',
+  articleTagsKey: ['Flutter', 'Mobile App', 'Android', 'iOS'],
+  articleTechnologyStackKey: [
+    'Flutter',
+    'Dart',
+    'Rive',
   ],
+  articleStartDateKey: '2020-02-14T00:00:00.000000',
+  articleStoreLinkKey:
+      'https://play.google.com/store/apps/details?id=com.appvinio.logicgame1',
+  articleIntoTilesKey: [],
 };

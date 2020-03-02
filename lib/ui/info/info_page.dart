@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/ui/common/basic_page/basic_page.dart';
-import 'package:portfolio/ui/common/hideable_box/hideadble_box.dart';
 import 'package:portfolio/ui/info/parts/info_basic_info.dart';
 import 'package:portfolio/ui/info/parts/info_education.dart';
 import 'package:portfolio/ui/info/parts/info_languages.dart';
-import 'package:portfolio/ui/info/parts/info_main_projects.dart';
+import 'package:portfolio/ui/info/parts/info_projects.dart';
 import 'package:portfolio/ui/info/parts/info_technologies.dart';
 import 'package:portfolio/ui/info/parts/info_work_experience.dart';
-import 'package:portfolio/ui/info/texts/info_header.dart';
-import 'package:portfolio/ui/info/texts/info_regular_text.dart';
-import 'package:portfolio/values/uni_courses.dart';
 
 class InfoPage extends StatelessWidget {
   @override
@@ -28,7 +23,7 @@ class InfoPage extends StatelessWidget {
               _buildHorizontalSeparator(),
               InfoWorkExperience(),
               _buildHorizontalSeparator(),
-              InfoMainProjects(),
+              InfoProjects(),
               _buildHorizontalSeparator(),
               InfoTechnologies(),
               _buildHorizontalSeparator(),

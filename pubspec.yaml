@@ -28,6 +28,7 @@ flutter:
     - assets/
     - assets/placelytics/
     - assets/pictile/
+    - assets/thg/
 
   fonts:
     - family: RobotoSlab

@@ -120,6 +120,7 @@ class BasicInfo extends StatelessWidget {
         child: _buildRegularText(
           _article.repoLink,
           color: Colors.blue,
+          maxLines: 1,
         ),
       );
     }
@@ -143,6 +144,7 @@ class BasicInfo extends StatelessWidget {
         child: _buildRegularText(
           _article.storeLink,
           color: Colors.blue,
+          maxLines: 1,
         ),
       );
     }
@@ -161,6 +163,7 @@ class BasicInfo extends StatelessWidget {
   Widget _buildRegularText(
     String text, {
     Color color = Colors.white,
+    int maxLines,
   }) {
     return Text(
       text,
@@ -169,6 +172,8 @@ class BasicInfo extends StatelessWidget {
         letterSpacing: 1.5,
         color: color,
       ),
+      maxLines: maxLines,
+      overflow: TextOverflow.ellipsis,
     );
   }
 

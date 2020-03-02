@@ -60,19 +60,6 @@ class ArticlePage extends StatelessWidget {
     return Text('NO SUCH TYPE (ERROR)');
   }
 
-  Widget _buildVerticalSeparator(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 8, right: 8),
-      child: Container(
-        width: 4,
-        decoration: BoxDecoration(
-          color: Theme.of(context).accentColor,
-          borderRadius: BorderRadius.circular(12),
-        ),
-      ),
-    );
-  }
-
   Widget _buildHorizontalSeparator(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 8, bottom: 8),

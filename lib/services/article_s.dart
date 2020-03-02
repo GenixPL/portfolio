@@ -20,7 +20,7 @@ class ArticleS {
 
     _articles.add(ArticleM(article_Placelytics));
     _articles.add(ArticleM(article_Pictile));
-    _articles.add(ArticleM(article_Example));
+    _articles.add(ArticleM(article_TheHardestGame));
   }
 
   List<ArticleM> getApps() {
