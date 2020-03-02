@@ -22,16 +22,23 @@ class BasicPage extends StatelessWidget {
             child: ScrollConfiguration(
               behavior: _CustomScrollBehavior(),
               child: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 32, 16, 16),
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(
-                      maxWidth: limitWidth ? maxWidth : double.infinity,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Flexible(
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(16, 32, 16, 16),
+                        child: ConstrainedBox(
+                          constraints: BoxConstraints(
+                            maxWidth: limitWidth ? maxWidth : double.infinity,
+                          ),
+                          child: Column(
+                            children: children,
+                          ),
+                        ),
+                      ),
                     ),
-                    child: Column(
-                      children: children,
-                    ),
-                  ),
+                  ],
                 ),
               ),
             ),
