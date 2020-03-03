@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:portfolio/models/article_m.dart';
 import 'package:portfolio/values/articles.dart';
 
@@ -51,5 +52,45 @@ class ArticleS {
     }
 
     return null;
+  }
+
+  List<String> getAllTags() {
+    List<String> toReturn = List();
+
+    _articles.forEach((a) {
+      a.tags.forEach((t) {
+        if (!toReturn.contains(t)) {
+          toReturn.add(t);
+        }
+      });
+    });
+
+    return toReturn;
+  }
+
+  List<ArticleM> getWithTags(List<String> tags) {
+    if (tags == null || tags.length == 0) {
+      return _articles;
+    }
+
+    List<ArticleM> toReturn = List();
+
+    for (int i = 0; i < _articles.length; i++) {
+      bool has = false;
+
+      for (int j = 0; j < tags.length; j++) {
+        if (_articles[i].tags.contains(tags[j])) {
+          toReturn.add(_articles[i]);
+          has = true;
+          break;
+        }
+      }
+
+      if (has) {
+        continue;
+      }
+    }
+
+    return toReturn;
   }
 }
