@@ -19,7 +19,7 @@ class YouTubePlayer extends StatelessWidget {
 
     // ignore: undefined_prefixed_name
     ui.platformViewRegistry.registerViewFactory(
-      'yt-frame',
+      values[0],
       (int viewId) => IFrameElement()
         ..src = values[0]
         ..style.border = 'none',
@@ -27,7 +27,7 @@ class YouTubePlayer extends StatelessWidget {
 
     return AspectRatio(
       aspectRatio: 16 / 9,
-      child: HtmlElementView(viewType: 'yt-frame'),
+      child: HtmlElementView(viewType: values[0]),
     );
   }
 }
