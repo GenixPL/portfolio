@@ -1,3 +1,4 @@
+import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/models/article_m.dart';
 import 'package:portfolio/services/article_s.dart';
@@ -8,6 +9,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BasicPage(
+      limitWidth: false,
+      backgroundImgPath: 'assets/background.jpg',
       children: <Widget>[
         _buildBody(context),
       ],
@@ -20,6 +23,17 @@ class HomePage extends StatelessWidget {
         _buildHeader(context, 'DEVELOPED APPS'),
         SizedBox(height: 8),
         _buildAppsSection(),
+        SizedBox(height: 8),
+        Container(
+          width: 250,
+          height: 250,
+          color: Colors.transparent, // it doesn't work without this color
+          child: FlareActor(
+            'assets/meteorite_animation.flr',
+            fit: BoxFit.contain,
+            animation: 'move',
+          ),
+        ),
       ],
     );
   }

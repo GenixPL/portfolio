@@ -5,11 +5,15 @@ class BasicPage extends StatelessWidget {
   final List<Widget> children;
   final bool limitWidth;
   final double maxWidth;
+  final EdgeInsets padding;
+  final String backgroundImgPath;
 
   BasicPage({
     this.children,
     this.limitWidth = true,
     this.maxWidth = 800,
+    this.padding = const EdgeInsets.fromLTRB(16, 32, 16, 16),
+    this.backgroundImgPath,
   });
 
   @override
@@ -18,7 +22,7 @@ class BasicPage extends StatelessWidget {
       body: Column(
         children: <Widget>[
           TopBar(),
-          Flexible(
+          Expanded(
             child: ScrollConfiguration(
               behavior: _CustomScrollBehavior(),
               child: SingleChildScrollView(
@@ -27,7 +31,7 @@ class BasicPage extends StatelessWidget {
                   children: <Widget>[
                     Flexible(
                       child: Padding(
-                        padding: const EdgeInsets.fromLTRB(16, 32, 16, 16),
+                        padding: padding,
                         child: ConstrainedBox(
                           constraints: BoxConstraints(
                             maxWidth: limitWidth ? maxWidth : double.infinity,
