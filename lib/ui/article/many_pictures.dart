@@ -8,6 +8,14 @@ class ManyPictures extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    precacheImage(AssetImage('assets/pictile/screen_1.jpg'), context);
+    precacheImage(AssetImage('assets/pictile/screen_2.jpg'), context);
+    precacheImage(AssetImage('assets/pictile/screen_3.jpg'), context);
+    precacheImage(AssetImage('assets/pictile/screen_4.jpg'), context);
+    precacheImage(AssetImage('assets/pictile/screen_5.jpg'), context);
+    precacheImage(AssetImage('assets/pictile/screen_6.jpg'), context);
+    precacheImage(AssetImage('assets/pictile/screen_7.jpg'), context);
+
     return Wrap(
       alignment: WrapAlignment.center,
       children: <Widget>[
